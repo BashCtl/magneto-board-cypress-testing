@@ -1,0 +1,8 @@
+{
+    "firstname": "John",
+    "lastname": "Wick",
+    "email": "john.wick@mail.com",
+    "password": "qwert789!",
+    "confirmPass": "qwert789!",
+    "successRegMsg": "Thank you for registering with Fake Online Clothing Store."
+}

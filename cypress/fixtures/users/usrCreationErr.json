@@ -1,0 +1,9 @@
+{
+    "firstNameError": "This is a required field.",
+    "lastnameError": "This is a required field.",
+    "invalidEmailError": "Please enter a valid email address",
+    "emptyEmailError": "This is a required field.",
+    "missmathcPassError": "Please enter the same value again.",
+    "emptyConfirmPassError": "This is a required field.",
+    "alreadyRegisteredErr": "There is already an account with this email address. "
+}

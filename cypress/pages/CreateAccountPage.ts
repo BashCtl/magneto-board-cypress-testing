@@ -9,6 +9,12 @@ class CreateAccountPage {
     private passwordInput = () => cy.get('#password')
     private passwordConfirmInput = () => cy.get('#password-confirmation')
     private createAccountBtn = () => cy.get('[title="Create an Account"]')
+    private firstNameError = () => cy.get('#firstname-error')
+    private lastnameError = () => cy.get('#lastname-error')
+    private emailAddressError = () => cy.get('#email_address-error')
+    private passwordConfirmError = () => cy.get('#password-confirmation-error')
+    private alertLabel = () => cy.get('div[role="alert"]')
+
 
     navigate() {
         cy.visit('/customer/account/create/')
@@ -51,6 +57,32 @@ class CreateAccountPage {
 
     clickCreateAccountBtn() {
         this.createAccountBtn().click()
+        return this
+    }
+
+    checkFristNameError(text) {
+        this.firstNameError().should('have.text', text)
+        return this
+    }
+
+    checkLastnameError(text) {
+        this.lastnameError().should('have.text', text)
+        return this
+    }
+
+    checkEmailError(text) {
+        this.emailAddressError().should('contain', text)
+        return this
+    }
+
+    checkPasswordConfirmError(text) {
+        this.passwordConfirmError().should('have.text', text)
+        return this
+    }
+
+    checkAllertMsg(text) {
+        this.alertLabel().should('contain', text)
+        return this
     }
 }
 

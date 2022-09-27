@@ -10,10 +10,10 @@ describe('Account Creation Specification', () => {
 
     beforeEach(function () {
         createAccountPage.navigate()
-        cy.fixture('users/user').then(function (user) {
+        cy.fixture('users/user').then((user) => {
             this.user = user
         })
-        cy.fixture('users/userErrors').then(function (error) {
+        cy.fixture('users/userErrors').then((error) => {
             this.error = error
         })
     })

@@ -6,14 +6,17 @@ import randomData from '../../utils/RandomData'
 
 describe('Account Creation Specification', () => {
 
-    beforeEach(function () {
-        createAccountPage.navigate()
+    before(function () {
         cy.fixture('users/user').then((user) => {
             this.user = user
         })
         cy.fixture('users/userErrors').then((error) => {
             this.error = error
         })
+    })
+
+    beforeEach(() => {
+        createAccountPage.navigate()
     })
 
     it('Positive: Create Valid Account', function () {

@@ -8,10 +8,10 @@ describe('Account Creation Specification', () => {
 
     beforeEach(function () {
         createAccountPage.navigate()
-        cy.fixture('users/createUser').then((user) => {
+        cy.fixture('users/user').then((user) => {
             this.user = user
         })
-        cy.fixture('users/usrCreationErr').then((error) => {
+        cy.fixture('users/userErrors').then((error) => {
             this.error = error
         })
     })

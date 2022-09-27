@@ -10,7 +10,7 @@ describe('Login tests', () => {
         })
     })
 
-    it.only('Positive: Login with valid cridentials', function () {
+    it('Positive: Login with valid cridentials', function () {
         loginPage.enterEmail(this.user.email)
             .enterPassword(this.user.password)
             .clickSingInBtn()

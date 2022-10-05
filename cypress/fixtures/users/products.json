@@ -1,0 +1,16 @@
+{
+    "jackets": {
+        "man": [
+            {
+                "title": "Montana Wind Jacket",
+                "price": 49.00,
+                "size": "XL",
+                "color": "Black",
+                "quatity": 2
+            },
+            {
+                "title": "Montana Wind Jacket"
+            }
+        ]
+    }
+}

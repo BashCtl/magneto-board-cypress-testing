@@ -8,6 +8,7 @@ class LoginPage {
 
     navigate() {
         cy.visit('/customer/account/login')
+        return this
     }
 
     enterEmail(email) {
@@ -23,6 +24,12 @@ class LoginPage {
     clickSingInBtn() {
         this.signInBtn().click()
         return this
+    }
+
+    login(user) {
+        this.enterEmail(user.email)
+            .enterPassword(user.password)
+            .clickSingInBtn()
     }
 }
 

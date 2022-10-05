@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import createAccountPage from '../../pages/CreateAccountPage'
+import createAccountPage from '../../pages/SignUpPage'
 import accountPage from '../../pages/AccountPage'
 import randomData from '../../utils/RandomData'
 

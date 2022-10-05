@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import loginPage from '../../pages/LoginPage'
 import menJacketsPage from '../../pages/MenJacketsPage'
 import itemPage from '../../pages/ItemPage'

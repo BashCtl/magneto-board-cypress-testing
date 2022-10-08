@@ -4,15 +4,33 @@ class ItemPage {
 
     private itemTitle = () => cy.get('.base')
     private priceLabel = () => cy.get('.product-info-price .price')
-    private sizeSelector = (size) => cy.get(`.text[option-label="${size}"]`)
+    private sizeSelector = (size) => cy.get(`.text[option-label="${size}"]`, { timeout: 15000 })
     private selectedSizeLabel = () => cy.get('.size span:nth-of-type(2)')
-    private colorSelector = (color) => cy.get(`.color[option-label="${color}"]`)
+    private colorSelector = (color) => cy.get(`.color[option-label="${color}"]`, { timeout: 15000 })
     private selectedColorLabel = () => cy.get('.color span:nth-of-type(2)')
     private quatityInput = () => cy.get('#qty')
-    private addToCartBtn = () => cy.ger('#product-addtocart-button')
+    private addToCartBtn = () => cy.get('#product-addtocart-button span')
+    private cartIcon = () => cy.get('.showcart')
+    private checkoutBtn = () => cy.get('button.checkout')
+    private itemAddedAlert = () => cy.get('[role="alert"]', { timeout: 15000 })
 
     clickAddToCartBtn() {
         this.addToCartBtn().click()
+        return this
+    }
+
+    waitUntilAddedToCart() {
+        this.itemAddedAlert().should('be.visible')
+        return this
+    }
+
+    clickOnCartIcon() {
+        this.cartIcon().click()
+        return this
+    }
+
+    proceedToCheckout() {
+        this.checkoutBtn().click()
     }
 
     enterQuatity(amount) {

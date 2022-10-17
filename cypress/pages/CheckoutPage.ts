@@ -23,6 +23,75 @@ class CheckoutPage {
         cy.contains(product, { timeout: 20000 }).should('be.visible')
         return this
     }
+
+    enterFirstname(firstname) {
+        this.firstnameInput().clear().type(firstname)
+        return this
+    }
+
+    enterLastname(lastname) {
+        this.lastnameInput().clear().type(lastname)
+        return this
+    }
+
+    enterCompany(companyTitle) {
+        this.companyInput().clear().type(companyTitle)
+        return this
+    }
+
+    enterAddressFirstLine(address) {
+        this.addressFirstLine().clear().type(address)
+        return this
+    }
+
+    enterAddressSecondLine(address) {
+        this.addressSecondLine().clear().type(address)
+        return this
+    }
+
+    enterAddressThirdLine(address) {
+        this.addressThirdLine().clear().type(address)
+        return this
+    }
+
+    enterCity(city) {
+        this.cityInput().clear().type(city)
+        return this
+    }
+
+    selectState(state) {
+        this.selectStateDropdown().select(state)
+        return this
+    }
+
+    enterZipCode(zipCode) {
+        this.zipCodeInput().clear().type(zipCode)
+        return this
+    }
+
+    selectCountry(country) {
+        this.selectCountryDropdown().select(country)
+        return this
+    }
+
+    enterPhoneNumber(number) {
+        this.phoneNumberInput().clear().type(number)
+        return this
+    }
+
+    selectBestWayShipping() {
+        this.shippingMethodTableRateRadioBtn().click()
+        return this
+    }
+
+    selectFlateRateShipping() {
+        this.shippingMethodFixedRadioBtn().click()
+        return this
+    }
+
+    clickNextButton() {
+        this.nextBtn().click()
+    }
 }
 
 export default new CheckoutPage()

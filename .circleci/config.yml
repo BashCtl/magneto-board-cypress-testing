@@ -24,3 +24,9 @@ jobs:
             - ~/.npm
             - ~/.cache
       - run: npm run test -- --record --key $KEY_DASH
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build

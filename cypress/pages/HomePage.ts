@@ -1,13 +1,16 @@
-/// <reference types="cypress" />
+/// <reference types="cypress-xpath" />
+
+import { takeWhile } from "../../node_modules/cypress/types/lodash/index"
 
 class HomePage {
 
 
     private pageTitle = () => cy.get('[data-ui-id="page-title-wrapper"]')
     private searchInput = () => cy.get('#search')
+    private menuItemByName = (itemTitle) => cy.xpath(`//*[text()="${itemTitle}"]/../..`)
     private womenMenu = () => cy.contains('Women')
-    private topsMenu = () => cy.contains('Tops')
-    private jacketsMenu = () => cy.contains('Jackets')
+    private topsSubmenu = (menu) => cy.xpath(`//*[text()="${menu}"]/../following-sibling::*//span[text()="Tops"]`)
+    private jacketSubMenu = (menu) => cy.xpath(`//*[text()="${menu}"]/../following-sibling::*//span[text()="Jackets"]`)
 
 
     navigate() {
@@ -20,18 +23,28 @@ class HomePage {
         return this
     }
 
-    navigateToWomenJaksts() {
-        this.jacketsMenu().invoke('show').click({ force: true })
+    navigateToJackets(menu) {
+        this.jacketSubMenu(menu).click({ force: true })
         return this
     }
 
-    navigateToWomenPage() {
-        this.womenMenu().click()
+    navigateToMenu(menu) {
+        this.menuItemByName(menu).click()
+        return this
+    }
+
+    navigateTops(menu) {
+        this.topsSubmenu(menu).click({ force: true })
         return this
     }
 
     pageTitleShouldContain(text) {
         this.pageTitle().should('contain', text)
+        return this
+    }
+
+    menuShouldBeActive(menu) {
+        this.menuItemByName(menu).should('have.class', 'has-active')
         return this
     }
 

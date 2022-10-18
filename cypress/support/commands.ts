@@ -23,3 +23,7 @@
 //
 // -- This will overwrite an existing command --
 /// <reference types="cypress" />
+
+// Cypress.Commands.add('hover', selector => {
+//     cy.get(selector).rightclick()
+// })

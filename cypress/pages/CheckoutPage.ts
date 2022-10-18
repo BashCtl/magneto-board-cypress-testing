@@ -11,6 +11,7 @@ class CheckoutPage {
     private addressThirdLine = () => cy.get('[name="street[2]"]')
     private cityInput = () => cy.get('[name="city"]')
     private selectStateDropdown = () => cy.get('[name="region_id"]')
+    private stateInput = () => cy.get('[name="region"]')
     private zipCodeInput = () => cy.get('[name="postcode"]')
     private selectCountryDropdown = () => cy.get('[name="country_id"]')
     private phoneNumberInput = () => cy.get('[name="telephone"]')
@@ -20,7 +21,7 @@ class CheckoutPage {
 
 
     productShouldBePresent(product) {
-        cy.contains(product, { timeout: 20000 }).should('be.visible')
+        cy.contains(product, { timeout: 30000 }).should('be.visible')
         return this
     }
 
@@ -61,6 +62,11 @@ class CheckoutPage {
 
     selectState(state) {
         this.selectStateDropdown().select(state)
+        return this
+    }
+
+    enterState(state) {
+        this.stateInput().clear().type(state)
         return this
     }
 

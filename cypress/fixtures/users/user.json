@@ -6,5 +6,16 @@
     "password": "qwert789!",
     "confirmPass": "qwert789!",
     "invalidPass": "shef892323wj",
-    "successRegMsg": "Thank you for registering with Fake Online Clothing Store."
+    "successRegMsg": "Thank you for registering with Fake Online Clothing Store.",
+    "companyTitle": "Weyland-Yutani",
+    "addressLine1": "Baker St. 666",
+    "addressLine2": "Fuck you building",
+    "addressLine3": "Joe's appartment",
+    "country": "United States",
+    "city": "Dark City",
+    "state": "Texas",
+    "zip": "73301",
+    "phone": "23409345",
+    "successfulyPurchaseTitle": "Thank you for your purchase!"
+
 }

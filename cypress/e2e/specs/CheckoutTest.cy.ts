@@ -2,7 +2,11 @@ import loginPage from '../../pages/LoginPage'
 import menJacketsPage from '../../pages/MenJacketsPage'
 import itemPage from '../../pages/ItemPage'
 import checkoutPage from '../../pages/CheckoutPage'
+import paymentPage from '../../pages/PaymentPage'
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false;
+});
 
 describe('Checkout test', function () {
 
@@ -46,8 +50,9 @@ describe('Checkout test', function () {
             .checkSelectedColor(jacket.color)
     })
 
-    it.only('Select man jacket and verify product presence in checkout', function () {
+    it('Select man jacket and verify product presence in checkout', function () {
         const jacket = this.products.jackets.man[0]
+        const user = this.user
         menJacketsPage.navigate()
             .selectProduct(jacket.title)
         itemPage.selectSize(jacket.size)
@@ -58,6 +63,11 @@ describe('Checkout test', function () {
             .clickOnCartIcon()
             .proceedToCheckout()
         checkoutPage.productShouldBePresent(jacket.title)
+            .selectBestWayShipping()
+            .clickNextButton()
+        paymentPage.clickPlaceOrderBtn()
+            .checkPageTitleWrapper(user.successfulyPurchaseTitle)
+
     })
 
 

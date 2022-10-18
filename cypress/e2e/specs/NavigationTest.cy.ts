@@ -8,8 +8,9 @@ describe('Navigation tests on home page', () => {
         cy.fixture('users/user').then((user) => {
             loginPage.navigate()
                 .login(user)
+            homePage.navigate()
         })
-        homePage.navigate()
+
     })
 
     it('Navigate to women jackets products', () => {

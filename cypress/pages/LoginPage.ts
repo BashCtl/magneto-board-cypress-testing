@@ -2,7 +2,7 @@
 
 class LoginPage {
 
-    private emailInput = () => cy.get('#email')
+    private emailInput = () => cy.get('#email', {timeout: 15000})
     private passwordInput = () => cy.get('#pass')
     private signInBtn = () => cy.get('.login.primary')
 

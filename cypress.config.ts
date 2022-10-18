@@ -5,6 +5,7 @@ export default defineConfig({
   e2e: {
     baseUrl: 'https://magento.softwaretestingboard.com',
     specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
-    defaultCommandTimeout: 10000
+    defaultCommandTimeout: 10000,
+    responseTimeout: 60000
   }
 })

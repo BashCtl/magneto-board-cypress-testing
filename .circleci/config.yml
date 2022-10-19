@@ -37,15 +37,6 @@ workflows:
     jobs:
       - build
 
-  on_demand:
-    when: << pipeline.parameters.ApiTrigger >>
-    jobs:
-      - build:
-          filters:
-            branches:
-              only:
-                - master
-
   nightly:
     triggers:
       - schedule:
@@ -56,3 +47,11 @@ workflows:
                 - master
     jobs:
       - build
+  on_demand:
+    when: << pipeline.parameters.ApiTrigger >>
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master

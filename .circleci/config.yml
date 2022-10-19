@@ -29,11 +29,14 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - run: npm run cypress:chrome:headless
-      - post-steps:
-        - store_artifacts:
-            path: cypress/mochawesome-report/
-            destination: reports/
+      - run:
+          name: Run e2e
+          command: npm run cypress:chrome:headless
+          no_output_timeout: 180m
+
+      - store_artifacts:
+          path: cypress/mochawesome-report/
+          destination: reports/
 
 workflows:
   version: 2

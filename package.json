@@ -8,7 +8,7 @@
     "delete:reports": "rm -r cypress/results/* || true",
     "prereport": "npm run delete:reports",
     "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && npx marge mochawesome.json",
-    "cypress:e2e": "npm run test; npm run mockawesome:merge",
+    "cypress:e2e": "npm run test; npm run mochawesome:merge",
     "cypress:chrome:headless": "npm run test --headless --browser chrome; npm run mochawesome:merge"
   },
   "keywords": [],

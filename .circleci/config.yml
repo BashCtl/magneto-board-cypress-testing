@@ -3,7 +3,7 @@ version: 2.1
 parameters:
   ApiTrigger:
     type: boolean
-    default: true
+    default: false
 
 jobs:
   build:
@@ -34,6 +34,7 @@ jobs:
 workflows:
   version: 2
   commit:
+    unless: << pipeline.parameters.ApiTrigger >>
     jobs:
       - build
 

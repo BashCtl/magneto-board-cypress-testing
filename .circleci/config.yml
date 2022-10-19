@@ -1,4 +1,10 @@
 version: 2
+
+parameters:
+  ApiTriger:
+    type: boolean
+    default: true
+
 jobs:
   build:
     docker:
@@ -30,6 +36,15 @@ workflows:
   commit:
     jobs:
       - build
+
+  on_demand:
+    unless: << pipeline.parameters.ApiTrigger >>
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
 
   nightly:
     triggers:

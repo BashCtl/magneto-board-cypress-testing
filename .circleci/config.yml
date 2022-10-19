@@ -32,6 +32,7 @@ jobs:
       - run: npm run cypress:chrome:headless
       - store_artifacts:
           path: cypress/mochawesome-report/
+          destination: reports/
 
 workflows:
   version: 2

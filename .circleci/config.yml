@@ -30,6 +30,8 @@ jobs:
             - ~/.npm
             - ~/.cache
       - run: npm run cypress:e2e
+      - store_artifacts:
+          path: mochawesome-report/
 
 workflows:
   version: 2

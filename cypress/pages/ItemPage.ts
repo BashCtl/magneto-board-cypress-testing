@@ -11,7 +11,7 @@ class ItemPage {
     private quatityInput = () => cy.get('#qty')
     private addToCartBtn = () => cy.get('#product-addtocart-button span')
     private cartIcon = () => cy.get('.showcart')
-    private checkoutBtn = () => cy.get('button.checkout')
+    private checkoutBtn = () => cy.get('button.checkout', { timeout: 20000 })
     private itemAddedAlert = () => cy.get('[role="alert"]', { timeout: 15000 })
 
     clickAddToCartBtn() {

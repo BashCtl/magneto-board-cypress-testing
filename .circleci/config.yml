@@ -30,6 +30,7 @@ jobs:
             - ~/.npm
             - ~/.cache
       - run: npm run cypress:chrome:headless
+    post-steps:
       - store_artifacts:
           path: cypress/mochawesome-report/
           destination: reports/

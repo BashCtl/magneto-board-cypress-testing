@@ -5,6 +5,7 @@ describe('Navigation tests on home page', () => {
 
 
     beforeEach(() => {
+        cy.clearCookies()
         cy.fixture('users/user').then((user) => {
             loginPage.navigate()
                 .login(user)

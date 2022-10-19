@@ -9,6 +9,7 @@ describe('Account Creation Specification', () => {
 
 
     beforeEach(function () {
+        cy.clearCookies()
         createAccountPage.navigate()
         cy.fixture('users/user').then((user) => {
             this.user = user

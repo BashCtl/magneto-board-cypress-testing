@@ -29,7 +29,7 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - run: npm run test -- --record --key $KEY_DASH
+      - run: npm run cypress:e2e
 
 workflows:
   version: 2

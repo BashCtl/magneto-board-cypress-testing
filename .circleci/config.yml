@@ -29,9 +29,9 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - run: npm run cypress:e2e
+      - run: npm run cypress:chrome:headless
       - store_artifacts:
-          path: /cypress/mochawesome-report/
+          path: cypress/mochawesome-report/
 
 workflows:
   version: 2

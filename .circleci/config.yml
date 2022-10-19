@@ -34,12 +34,12 @@ jobs:
           command: npm run cypress:chrome:headless
           no_output_timeout: 180m
 
-      # - store_artifacts:
-      #     path: mochawesome-report/
-      #     destination: reports/
-      # - store_artifacts:
-      #     path: cypress/videos/
-      #     destination: videos/
+      - store_artifacts:
+          path: mochawesome-report/
+          destination: reports/
+      - store_artifacts:
+          path: cypress/videos/
+          destination: videos/
 
 workflows:
   version: 2

@@ -31,9 +31,8 @@ jobs:
             - ~/.cache
       - run:
           name: Run e2e
-          command: |
-            set -e 
-            npm run cypress:chrome:headless
+          command: npm run cypress:chrome:headless
+          no_output_timeout: 180m
 
       - store_artifacts:
           path: mochawesome-report/

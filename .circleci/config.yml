@@ -29,13 +29,14 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - run:
-          name: Run e2e
-          command: npm run cypress:chrome:headless
+      - run: npm run cypress:chrome:headless
 
       - store_artifacts:
           path: mochawesome-report/
           destination: reports/
+      - store_artifacts:
+          path: cypress/videos/
+          destination: videos/
 
 workflows:
   version: 2

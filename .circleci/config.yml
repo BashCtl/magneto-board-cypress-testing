@@ -38,7 +38,7 @@ workflows:
       - build
 
   on_demand:
-    unless: << pipeline.parameters.ApiTrigger >>
+    when: << pipeline.parameters.ApiTrigger >>
     jobs:
       - build:
           filters:

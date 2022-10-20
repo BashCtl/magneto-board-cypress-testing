@@ -39,8 +39,11 @@ jobs:
             - ~/.cache
       - run:
           name: Run e2e
-          command: npm run test -- --browser << pipeline.parameters.browser >>  << pipeline.parameters.headless >>; npm run mochawesome:merge
+          command: npm run test -- --browser << pipeline.parameters.browser >>  << pipeline.parameters.headless >>
           no_output_timeout: 180m
+      - run:
+          name: Generate mocha report
+          command: npm run mochawesome:merge
 
       - store_artifacts:
           path: mochawesome-report/

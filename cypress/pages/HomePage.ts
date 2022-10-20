@@ -9,7 +9,7 @@ class HomePage {
     private searchInput = () => cy.get('#search')
     private menuItemByName = (itemTitle) => cy.xpath(`//*[text()="${itemTitle}"]/../..`)
     private topsSubmenu = (menu) => cy.xpath(`//*[text()="${menu}"]/../following-sibling::*//span[text()="Tops"]`)
-    private bottomsSubmenu = (menu) => cy.xpath(`//*[text()="${menu}"]/../following-sibling::*//span[text()="Tops"]`)
+    private bottomsSubmenu = (menu) => cy.xpath(`//*[text()="${menu}"]/../following-sibling::*//span[text()="Bottoms"]`)
     private jacketSubMenu = (menu) => cy.xpath(`//*[text()="${menu}"]/../following-sibling::*//span[text()="Jackets"]`)
     private hoodiesAndSweatshirtsSubMenu = (menu) => cy.xpath(`//*[text()="${menu}"]/../following-sibling::*//span[text()="Hoodies & Sweatshirts"]`)
 

@@ -47,13 +47,15 @@ jobs:
           when: always
 
       - store_artifacts:
-          name: Uploading report
+          name: Report uploading
           path: mochawesome-report/
           destination: reports/
       - store_artifacts:
+          name: Videos uploading
           path: cypress/videos/
           destination: videos/
       - store_artifacts:
+          name: Screenshots uploading
           path: cypress/screenshots/
           destination: screenshots/
 

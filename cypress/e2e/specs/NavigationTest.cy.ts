@@ -1,6 +1,11 @@
 import homePage from '../../pages/HomePage'
 import loginPage from '../../pages/LoginPage'
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false;
+});
+
+
 describe('Navigation tests on home page', () => {
 
 

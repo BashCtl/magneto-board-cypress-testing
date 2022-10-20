@@ -13,11 +13,12 @@ describe('Checkout test', function () {
 
     beforeEach(function () {
         cy.clearCookies()
-        cy.fixture('users/user').then(function (user) {
-            this.user = user
-            loginPage.navigate()
-                .login(this.user)
-        })
+        cy.fixture('users/user')
+            .then(function (user) {
+                this.user = user
+                loginPage.navigate()
+                    .login(this.user)
+            })
         cy.fixture('users/products').then((products) => {
             this.products = products
         })
@@ -63,8 +64,7 @@ describe('Checkout test', function () {
             .waitUntilAddedToCart()
             .clickOnCartIcon()
             .proceedToCheckout()
-        checkoutPage.productShouldBePresent(jacket.title)
-            .selectBestWayShipping()
+        checkoutPage.selectBestWayShipping()
             .clickNextButton()
         paymentPage.clickPlaceOrderBtn()
             .checkPageTitleWrapper(user.successfulyPurchaseTitle)

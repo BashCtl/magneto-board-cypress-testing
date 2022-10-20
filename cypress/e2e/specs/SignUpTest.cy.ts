@@ -4,6 +4,11 @@ import createAccountPage from '../../pages/SignUpPage'
 import accountPage from '../../pages/AccountPage'
 import randomData from '../../utils/RandomData'
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false;
+});
+
+
 describe('Account Creation Specification', () => {
 
 

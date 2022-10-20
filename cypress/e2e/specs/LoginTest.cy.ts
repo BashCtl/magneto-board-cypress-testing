@@ -1,6 +1,11 @@
 import loginPage from '../../pages/LoginPage'
 import accountPage from '../../pages/AccountPage'
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false;
+});
+
+
 describe('Login tests', () => {
 
     beforeEach(function () {

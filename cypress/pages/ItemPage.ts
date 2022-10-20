@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/// <reference types="cypress-xpath" />
 
 class ItemPage {
 
@@ -12,7 +12,7 @@ class ItemPage {
     private addToCartBtn = () => cy.get('#product-addtocart-button span')
     private cartIcon = () => cy.get('.showcart')
     private checkoutBtn = () => cy.get('button.checkout', { timeout: 20000 })
-    private itemAddedAlert = () => cy.get('[role="alert"]', { timeout: 15000 })
+    private itemAddedAlert = () => cy.xpath('//*[contains(@data-bind,"prepareMessage")]', { timeout: 15000 })
 
     clickAddToCartBtn() {
         this.addToCartBtn().click()

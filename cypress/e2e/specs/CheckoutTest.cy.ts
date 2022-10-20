@@ -12,7 +12,7 @@ describe('Checkout test', function () {
 
 
     beforeEach(function () {
-        cy.clearCookies()
+        
         cy.fixture('users/user')
             .then(function (user) {
                 this.user = user

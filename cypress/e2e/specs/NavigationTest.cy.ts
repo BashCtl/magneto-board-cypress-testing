@@ -8,7 +8,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 describe('Navigation tests on home page', () => {
 
-
     beforeEach(() => {
         cy.clearCookies()
         cy.fixture('users/user').then((user) => {
@@ -31,6 +30,18 @@ describe('Navigation tests on home page', () => {
             .pageTitleShouldContain('Jackets')
     })
 
+    it('Navigate to women hoodies page', () => {
+        homePage.navigateToHoodies('Women')
+            .menuShouldBeActive('Women')
+            .pageTitleShouldContain('Hoodies & Sweatshirts')
+    })
+
+    it('Navigate to men hoodies page', () => {
+        homePage.navigateToHoodies('Men')
+            .menuShouldBeActive('Men')
+            .pageTitleShouldContain('Hoodies & Sweatshirts')
+    })
+
     it('Navigate to women page', () => {
         homePage.navigateToMenu('Women')
             .pageTitleShouldContain('Women')
@@ -39,6 +50,18 @@ describe('Navigation tests on home page', () => {
     it('Navigate to men page', () => {
         homePage.navigateToMenu('Men')
             .pageTitleShouldContain('Men')
+    })
+
+    it('Navigate to women bottoms page', () => {
+        homePage.navigateToBottoms('Women')
+            .menuShouldBeActive('Women')
+            .pageTitleShouldContain('Bottoms')
+    })
+
+    it('Navigate to men bottoms page', () => {
+        homePage.navigateToBottoms('Men')
+            .menuShouldBeActive('Men')
+            .pageTitleShouldContain('Bottoms')
     })
 
     it('Navigate to women tops menu', () => {

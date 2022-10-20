@@ -8,10 +8,10 @@ class HomePage {
     private pageTitle = () => cy.get('[data-ui-id="page-title-wrapper"]')
     private searchInput = () => cy.get('#search')
     private menuItemByName = (itemTitle) => cy.xpath(`//*[text()="${itemTitle}"]/../..`)
-    private womenMenu = () => cy.contains('Women')
     private topsSubmenu = (menu) => cy.xpath(`//*[text()="${menu}"]/../following-sibling::*//span[text()="Tops"]`)
+    private bottomsSubmenu = (menu) => cy.xpath(`//*[text()="${menu}"]/../following-sibling::*//span[text()="Tops"]`)
     private jacketSubMenu = (menu) => cy.xpath(`//*[text()="${menu}"]/../following-sibling::*//span[text()="Jackets"]`)
-
+    private hoodiesAndSweatshirtsSubMenu = (menu) => cy.xpath(`//*[text()="${menu}"]/../following-sibling::*//span[text()="Hoodies & Sweatshirts"]`)
 
     navigate() {
         cy.visit('')
@@ -28,6 +28,11 @@ class HomePage {
         return this
     }
 
+    navigateToHoodies(menu) {
+        this.hoodiesAndSweatshirtsSubMenu(menu).click({ force: true })
+        return this
+    }
+
     navigateToMenu(menu) {
         this.menuItemByName(menu).click()
         return this
@@ -35,6 +40,11 @@ class HomePage {
 
     navigateTops(menu) {
         this.topsSubmenu(menu).click({ force: true })
+        return this
+    }
+
+    navigateToBottoms(menu) {
+        this.bottomsSubmenu(menu).click({ force: true })
         return this
     }
 

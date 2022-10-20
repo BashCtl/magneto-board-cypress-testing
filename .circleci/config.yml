@@ -47,6 +47,7 @@ jobs:
           when: always
 
       - store_artifacts:
+          name: Uploading report
           path: mochawesome-report/
           destination: reports/
       - store_artifacts:

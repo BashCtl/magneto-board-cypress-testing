@@ -44,6 +44,7 @@ jobs:
       - run:
           name: Generate mocha report
           command: npm run mochawesome:merge
+          when: always
 
       - store_artifacts:
           path: mochawesome-report/

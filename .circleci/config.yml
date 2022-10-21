@@ -40,7 +40,7 @@ jobs:
             mkdir cypress/tmp
             tests=$(circleci tests glob "cypress/e2e/specs/*.cy.ts" | circleci tests split)
             echo $tests
-            npm run test -- --browser << pipeline.parameters.browser >>
+            $tests && npm run test -- --browser << pipeline.parameters.browser >>
           no_output_timeout: 180m
       - run:
           name: Generate mocha report

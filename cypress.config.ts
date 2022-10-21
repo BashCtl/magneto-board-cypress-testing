@@ -4,9 +4,10 @@ export default defineConfig({
   projectId: "nx6aoh",
   e2e: {
     baseUrl: 'https://magento.softwaretestingboard.com',
-    specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
+    // specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
+    specPattern: 'cypress/tmp/*.cy.{js,jsx,ts,tsx}',
     defaultCommandTimeout: 10000,
-    responseTimeout: 80000,
+    responseTimeout: 60000,
 
   },
   reporter: 'cypress-multi-reporters',

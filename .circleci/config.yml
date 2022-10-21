@@ -36,7 +36,10 @@ jobs:
             - ~/.cache
       - run:
           name: Run e2e
-          command: npm run test -- --browser << pipeline.parameters.browser >> --parallel
+          command: |
+            mkdir cypress/tmp
+            mv ($CircleCi tests glob cypress/e2e/specs/*.cy.ts | CircleCi tests split) cypress/tmp || true
+            ["$(ls -A cypress/tmp)"] && npm run test -- --browser << pipeline.parameters.browser >>
           no_output_timeout: 180m
       - run:
           name: Generate mocha report

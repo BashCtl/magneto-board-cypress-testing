@@ -36,7 +36,7 @@ jobs:
             - ~/.cache
       - run:
           name: Run e2e
-          command: npm run test -- --browser << pipeline.parameters.browser >>
+          command: npm run test -- --browser << pipeline.parameters.browser >> --parallel
           no_output_timeout: 180m
       - run:
           name: Generate mocha report

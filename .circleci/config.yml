@@ -38,7 +38,7 @@ jobs:
           name: Run e2e
           command: |
             mkdir cypress/tmp
-            mv ($CircleCi tests glob cypress/e2e/specs/*.cy.ts | CircleCi tests split) cypress/tmp || true
+            mv $(CircleCi tests glob cypress/e2e/specs/*.cy.ts | CircleCi tests split) cypress/tmp || true
             ["$(ls -A cypress/tmp)"] && npm run test -- --browser << pipeline.parameters.browser >>
           no_output_timeout: 180m
       - run:

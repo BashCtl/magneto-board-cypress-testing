@@ -39,7 +39,7 @@ jobs:
           command: |
             mkdir cypress/tmp
             mv $(circleci tests glob "cypress/e2e/specs/*.cy.ts" | circleci tests split) cypress/tmp || true
-            npm run test -- --spec[ "$(ls -A cypress/tmp)" ] --browser << pipeline.parameters.browser >>  && npm run test -- --browser << pipeline.parameters.browser >>
+            npm run test -- --spec [ "$(ls -A cypress/tmp)" ] --browser << pipeline.parameters.browser >>  && npm run test -- --browser << pipeline.parameters.browser >>
           no_output_timeout: 180m
       - run:
           name: Generate mocha report

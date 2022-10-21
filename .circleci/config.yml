@@ -16,6 +16,7 @@ jobs:
         environment:
           ## this enables colors in the output
           TERM: xterm
+    parallelism: 2
     working_directory: ~/app
     steps:
       - checkout

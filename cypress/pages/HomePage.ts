@@ -15,11 +15,14 @@ class HomePage {
 
     navigate() {
         cy.visit('')
+        return this
     }
 
 
     searchProduct(product) {
-        this.searchInput().clear().type(product)
+        this.searchInput().clear()
+            .type(product)
+            .type('{enter}')
         return this
     }
 

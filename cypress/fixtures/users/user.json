@@ -16,6 +16,11 @@
     "state": "Texas",
     "zip": "73301",
     "phone": "23409345",
-    "successfulyPurchaseTitle": "Thank you for your purchase!"
-
+    "successfulyPurchaseTitle": "Thank you for your purchase!",
+    "jacket": "jacket",
+    "sortOption": {
+        "price": "Price",
+        "producName": "Product Name",
+        "relevance": "Relevance"
+    }
 }

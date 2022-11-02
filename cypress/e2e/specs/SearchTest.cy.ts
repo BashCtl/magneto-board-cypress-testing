@@ -18,7 +18,8 @@ describe('Search Result test', () => {
             })
     })
 
-    it.only('Sort option test', function () {
+    // in progress
+    it.skip('Sort option test', function () {
         homePage.navigate()
             .searchProduct(this.user.jacket)
         searchResultPage.setAscendingOrder()

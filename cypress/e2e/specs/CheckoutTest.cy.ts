@@ -12,7 +12,7 @@ describe('Checkout test', function () {
 
 
     beforeEach(function () {
-        
+
         cy.fixture('users/user')
             .then(function (user) {
                 this.user = user
@@ -52,7 +52,7 @@ describe('Checkout test', function () {
             .checkSelectedColor(jacket.color)
     })
 
-    it('Select man jacket and verify product presence in checkout', function () {
+    it.skip('Select man jacket and verify product presence in checkout', function () {
         const jacket = this.products.jackets.man[0]
         const user = this.user
         menJacketsPage.navigate()

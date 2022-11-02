@@ -7,7 +7,7 @@ class PaymentPage {
     private applyDiscountArrow = () => cy.get('#block-discount-heading')
     private discountCodeInput = () => cy.get('#discount-code')
     private applyDiscountBtn = () => cy.get('button.action-apply')
-    private pageTitleWrapper = () => cy.get('[data-ui-id="page-title-wrapper"]')
+    private pageTitleWrapper = () => cy.get('[data-ui-id="page-title-wrapper"]', { timeout: 20000 })
     private continueShoppingBtn = () => cy.contains('a.continue')
 
     clickBillingAddressCheckbox() {

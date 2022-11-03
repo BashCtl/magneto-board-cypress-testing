@@ -51,8 +51,8 @@ describe('Checkout test', function () {
             .checkSelectedColor(jacket.color)
     })
 
-    // need to fix
-    it.only('Select man jacket and verify product presence in checkout', function () {
+    
+    it('Select man jacket and verify product presence in checkout', function () {
         const jacket = this.products.jackets.man[0]
         const user = this.user
         menJacketsPage.navigate()

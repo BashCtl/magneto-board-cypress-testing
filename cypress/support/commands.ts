@@ -23,6 +23,7 @@
 //
 // -- This will overwrite an existing command --
 /// <reference types="cypress" />
+import "cypress-real-events/support";
 
 // Cypress.Commands.add('hover', selector => {
 //     cy.get(selector).rightclick()

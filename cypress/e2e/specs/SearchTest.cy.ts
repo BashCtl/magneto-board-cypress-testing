@@ -18,15 +18,14 @@ describe('Search Result test', () => {
             })
     })
 
-    // in progress
-    it.skip('Sort option test', function () {
+    it.only('Sort by price ascendig order test', function () {
         homePage.navigate()
             .searchProduct(this.user.jacket)
-        searchResultPage.setAscendingOrder()
-            // .productItemsShouldBeVisible()
-            // .selectSortOption(this.user.sortOption.price)
-            // .productItemsShouldBeVisible()
-            // .getPrices()
+        searchResultPage.searchFieldShouldHaveValue(this.user.jacket)
+            .pageTitleShouldContain(this.user.jacket)
+            .setAscendingOrder()
+            .selectSortOption(this.user.sortOption.price)
+            .priceShouldBeAscending()
     })
 
 })

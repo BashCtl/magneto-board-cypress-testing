@@ -12,7 +12,6 @@ describe('Checkout test', function () {
 
 
     beforeEach(function () {
-
         cy.fixture('users/user')
             .then(function (user) {
                 this.user = user
@@ -53,7 +52,7 @@ describe('Checkout test', function () {
     })
 
     // need to fix
-    it.skip('Select man jacket and verify product presence in checkout', function () {
+    it.only('Select man jacket and verify product presence in checkout', function () {
         const jacket = this.products.jackets.man[0]
         const user = this.user
         menJacketsPage.navigate()
@@ -63,7 +62,9 @@ describe('Checkout test', function () {
             .enterQuatity(jacket.quatity)
             .clickAddToCartBtn()
             .waitUntilAddedToCart()
+            .checkCartCounter(jacket.quatity)
             .clickOnCartIcon()
+            .checkItemsCountInsideCart(jacket.quatity)
             .proceedToCheckout()
         checkoutPage.selectBestWayShipping()
             .clickNextButton()

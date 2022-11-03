@@ -10,9 +10,12 @@ class ItemPage {
     private selectedColorLabel = () => cy.get('.color span:nth-of-type(2)')
     private quatityInput = () => cy.get('#qty')
     private addToCartBtn = () => cy.get('#product-addtocart-button span')
-    private cartIcon = () => cy.get('.showcart')
-    private checkoutBtn = () => cy.get('button.checkout', { timeout: 20000 })
+    private cartIcon = () => cy.get('a.showcart')
+    private checkoutBtn = () => cy.get('#top-cart-btn-checkout', { timeout: 20000 })
     private itemAddedAlert = () => cy.xpath('//*[contains(@data-bind,"prepareMessage")]', { timeout: 15000 })
+    private cartCounter = () => cy.get('.counter-number')
+    private insideCartCounter = () => cy.get('.count')
+    private cartPreview = () => cy.get('#minicart-content-wrapper')
 
     clickAddToCartBtn() {
         this.addToCartBtn().click()
@@ -25,12 +28,15 @@ class ItemPage {
     }
 
     clickOnCartIcon() {
-        this.cartIcon().click()
+        this.cartIcon().realClick({ position: "center" })
         return this
     }
 
     proceedToCheckout() {
-        this.checkoutBtn().click()
+        cy.wait(1000)
+        this.checkoutBtn()
+            .realHover()
+            .click({ force: true })
     }
 
     enterQuatity(amount) {
@@ -70,6 +76,16 @@ class ItemPage {
 
     checkItmeQuatity(amount) {
         this.quatityInput().should('have.value', amount)
+        return this
+    }
+
+    checkCartCounter(count) {
+        this.cartCounter().should('contain', count)
+        return this
+    }
+
+    checkItemsCountInsideCart(count) {
+        this.insideCartCounter().should('contain', count)
         return this
     }
 

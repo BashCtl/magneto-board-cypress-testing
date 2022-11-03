@@ -15,8 +15,8 @@ class CheckoutPage {
     private zipCodeInput = () => cy.get('[name="postcode"]')
     private selectCountryDropdown = () => cy.get('[name="country_id"]')
     private phoneNumberInput = () => cy.get('[name="telephone"]')
-    private shippingMethodFixedRadioBtn = () => cy.get('#label_method_flatrate_flatrate', { timeout: 20000 })
-    private shippingMethodTableRateRadioBtn = () => cy.get('#label_method_bestway_tablerate', { timeout: 20000 })
+    private shippingMethodFixedRadioBtn = () => cy.get('#label_method_flatrate_flatrate', { timeout: 60000 })
+    private shippingMethodTableRateRadioBtn = () => cy.get('#label_method_bestway_tablerate', { timeout: 60000 })
     private nextBtn = () => cy.get('button.continue')
 
 

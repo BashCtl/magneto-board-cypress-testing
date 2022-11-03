@@ -18,7 +18,7 @@ describe('Search Result test', () => {
             })
     })
 
-    it('Sort by price ascendig order test', function () {
+    it('Sort by price ascendig order', function () {
         homePage.navigate()
             .searchProduct(this.user.jacket)
         searchResultPage.searchFieldShouldHaveValue(this.user.jacket)
@@ -26,6 +26,16 @@ describe('Search Result test', () => {
             .setAscendingOrder()
             .selectSortOption(this.user.sortOption.price)
             .priceShouldBeAscending()
+    })
+
+    it('Sort by price descendig order', function () {
+        homePage.navigate()
+            .searchProduct(this.user.jacket)
+        searchResultPage.searchFieldShouldHaveValue(this.user.jacket)
+            .pageTitleShouldContain(this.user.jacket)
+            .setDescendingOrder()
+            .selectSortOption(this.user.sortOption.price)
+            .priceShouldBeDescending()
     })
 
 })

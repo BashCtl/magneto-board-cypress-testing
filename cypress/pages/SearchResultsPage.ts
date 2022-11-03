@@ -5,7 +5,7 @@ class SearchResultPage {
     private sortDropdown = () => cy.get('#sorter').first()
     private selectedSort = () => cy.get('#sorter option[selected="selected"]', { timeout: 15000 }).first()
     private priceElements = () => cy.get('.price')
-    private sortAscArrow = () => cy.get('.action.sort-asc')
+    private sortArrow = () => cy.get('.sorter').first()
     private sortDescArrow = () => cy.get('.action.sort-desc')
     private productIemsList = () => cy.get('.product-item-info')
     private pageTitle = () => cy.get('.page-title span')
@@ -41,21 +41,25 @@ class SearchResultPage {
     }
 
     setDescendingOrder() {
-        this.sortAscArrow().then(arrow => {
-            if (arrow.length) {
-                cy.wrap(arrow).click()
+        this.sortArrow().then(arrow => {
+            if (arrow.find('.sort-asc').length > 0) {
+                //need to implemet better wait for page loadig
+                cy.wait(2000)
+                cy.wrap(arrow.find('.sort-asc')).realClick()
+                this.sortArrow().find('.sort-desc').should('be.visible')
             }
         })
         return this
     }
 
     setAscendingOrder() {
-        this.sortDescArrow().then((arrow) => {
-            if (arrow.length) {
+        this.sortArrow().then((arrow) => {
+            if (arrow.find('.sort-desc').length > 0) {
                 //need to implemet better wait for page loadig
                 cy.wait(2000)
-                cy.wrap(arrow).realClick({ pointer: "pen" })
-                this.sortAscArrow().eq(0).should('be.visible')
+                cy.wrap(arrow.find('.sort-desc')).realClick()
+                console.log('CLICKED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+                this.sortArrow().find('.sort-asc').should('be.visible')
             }
         })
         return this
@@ -69,6 +73,17 @@ class SearchResultPage {
             const ascPrices = Array.from(els, el =>
                 parseInt(el.innerText.replace('$', ''))).sort((a, b) => a - b)
             expect(prices).to.deep.eq(ascPrices)
+        })
+        return this
+    }
+
+    priceShouldBeDescending() {
+        this.priceElements().then((els) => {
+            const prices = Array.from(els, el =>
+                parseInt(el.innerText.replace('$', '')))
+            const descPrices = Array.from(els, el =>
+                parseInt(el.innerText.replace('$', ''))).sort((a, b) => b - a)
+            expect(prices).to.deep.eq(descPrices)
         })
         return this
     }

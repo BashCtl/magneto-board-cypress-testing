@@ -18,7 +18,7 @@ describe('Search Result test', () => {
             })
     })
 
-    it.only('Sort by price ascendig order test', function () {
+    it('Sort by price ascendig order test', function () {
         homePage.navigate()
             .searchProduct(this.user.jacket)
         searchResultPage.searchFieldShouldHaveValue(this.user.jacket)

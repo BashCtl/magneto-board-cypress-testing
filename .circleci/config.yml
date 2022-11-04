@@ -9,17 +9,9 @@ parameters:
     type: string
     default: chrome
 
-commands:
-  e2e:
-    parameters:
-      e2eCommand:
-        type: string
-        default: npm run test -- --browser << pipeline.parameters.browser >>
-    steps:
-      - run:
-          name: Run e2e
-          command: << parameters.e2eCommand >>
-          no_output_timeout: 180m
+  e2eCommand:
+    type: string
+    default: npm run test -- --browser << pipeline.parameters.browser >>
 
 jobs:
   build:
@@ -45,11 +37,11 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - e2e
-      # - run:
-      #     name: Run e2e
-      #     command: << pipeline.parameters.e2eCommand >>
-      #     no_output_timeout: 180m
+      - run:
+          name: Run e2e
+          command: << pipepline.parameters.e2eCommand >>
+          no_output_timeout: 180m
+          
       - run:
           name: Generate mocha report
           command: npm run mochawesome:merge

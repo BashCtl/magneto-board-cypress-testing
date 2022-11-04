@@ -86,6 +86,19 @@ workflows:
                 - master
     jobs:
       - build
+
+  smoke:
+    triggers:
+      - schedule:
+          cron: "0 */2 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build:
+          e2eCommand: CYPRESS_INCLUDE_TAGS=smoke npm run test -- --browser << pipeline.parameters.browser >>
+
   on_demand:
     when: << pipeline.parameters.ApiTrigger >>
     jobs:

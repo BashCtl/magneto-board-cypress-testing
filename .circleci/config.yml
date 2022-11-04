@@ -9,6 +9,10 @@ parameters:
     type: string
     default: chrome
 
+  e2eCommand:
+    type: string
+    default: npm run test -- --browser << pipeline.parameters.browser >>
+
 jobs:
   build:
     docker:
@@ -36,7 +40,7 @@ jobs:
             - ~/.cache
       - run:
           name: Run e2e
-          command: npm run test -- --browser << pipeline.parameters.browser >>
+          command: << pipeline.parameters.e2eCommand >>
           no_output_timeout: 180m
       - run:
           name: Generate mocha report

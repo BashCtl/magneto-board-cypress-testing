@@ -14,7 +14,7 @@ commands:
     parameters:
       e2eCommand:
         type: string
-        default: npm run test -- --browser browser
+        default: npm run test -- --browser << pipeline.parameters.browser >>
     steps:
       - run:
           name: Run e2e

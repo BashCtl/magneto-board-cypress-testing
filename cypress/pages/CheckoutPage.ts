@@ -86,6 +86,7 @@ class CheckoutPage {
     }
 
     selectBestWayShipping() {
+        cy.reload()
         this.shippingMethodTableRateRadioBtn().click()
         return this
     }

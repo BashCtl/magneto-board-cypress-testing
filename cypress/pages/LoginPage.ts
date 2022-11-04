@@ -8,6 +8,7 @@ class LoginPage {
 
     navigate() {
         cy.visit('/customer/account/login')
+        cy.reload()
         return this
     }
 

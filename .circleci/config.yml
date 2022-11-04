@@ -97,7 +97,9 @@ workflows:
                 - master
     jobs:
       - build:
-          e2eCommand: CYPRESS_INCLUDE_TAGS=smoke npm run test -- --browser << pipeline.parameters.browser >>
+          steps:
+            - e2e:
+                e2eCommand: CYPRESS_INCLUDE_TAGS=smoke npm run test -- --browser << pipeline.parameters.browser >>
 
   on_demand:
     when: << pipeline.parameters.ApiTrigger >>

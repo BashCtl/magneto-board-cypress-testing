@@ -7,8 +7,8 @@ class LoginPage {
     private signInBtn = () => cy.get('.login.primary')
 
     navigate() {
+        cy.clearLocalStorage()
         cy.visit('/customer/account/login')
-        cy.reload()
         return this
     }
 

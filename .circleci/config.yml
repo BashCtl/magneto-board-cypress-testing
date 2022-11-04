@@ -67,7 +67,11 @@ jobs:
 workflows:
   version: 2
   commit:
-    unless: << pipeline.parameters.ApiTrigger >> && << pipeline.parameters.SmokeTrigger>>
+    unless:
+      and:
+        - << pipeline.parameters.ApiTrigger >>
+        - << pipeline.parameters.SmokeTrigger>>
+
     jobs:
       - build
 

@@ -5,6 +5,10 @@ parameters:
     type: boolean
     default: false
 
+  SmokeTrigger:
+    type: boolean
+    default: false
+
   browser:
     type: string
     default: chrome
@@ -89,6 +93,16 @@ workflows:
     jobs:
       - build:
           e2eCommand: CYPRESS_INCLUDE_TAGS=smoke npm run test -- --browser << pipeline.parameters.browser >>
+
+  smoke_on_demad:
+    when: << pipeline.parameters.SmokeTrigger>>
+    jobs:
+      - build:
+          e2eCommand: CYPRESS_INCLUDE_TAGS=smoke npm run test -- --browser << pipeline.parameters.browser >>
+          filters:
+            branches:
+              only:
+                - master
 
   on_demand:
     when: << pipeline.parameters.ApiTrigger >>

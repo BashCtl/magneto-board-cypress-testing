@@ -28,7 +28,6 @@ jobs:
         environment:
           ## this enables colors in the output
           TERM: xterm
-    parallelism: 2
     working_directory: ~/app
     steps:
       - checkout
@@ -97,9 +96,8 @@ workflows:
                 - master
     jobs:
       - build:
-          steps:
-            - e2e:
-                e2eCommand: CYPRESS_INCLUDE_TAGS=smoke npm run test -- --browser << pipeline.parameters.browser >>
+          e2e:
+            e2eCommand: CYPRESS_INCLUDE_TAGS=smoke npm run test -- --browser << pipeline.parameters.browser >>
 
   on_demand:
     when: << pipeline.parameters.ApiTrigger >>

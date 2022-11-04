@@ -2,9 +2,10 @@
 
 class LoginPage {
 
-    private emailInput = () => cy.get('#email', {timeout: 15000})
+    private emailInput = () => cy.get('#email', { timeout: 15000 })
     private passwordInput = () => cy.get('#pass')
     private signInBtn = () => cy.get('.login.primary')
+    private errorAlert = () => cy.get('[role="alert"]')
 
     navigate() {
         cy.clearLocalStorage()
@@ -31,6 +32,11 @@ class LoginPage {
         this.enterEmail(user.email)
             .enterPassword(user.password)
             .clickSingInBtn()
+    }
+
+    checkAlert(message) {
+        this.errorAlert().should('contain', message)
+        return this
     }
 }
 

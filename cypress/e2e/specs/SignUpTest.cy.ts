@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/// <reference types='cypress-tags' />
 
 import createAccountPage from '../../pages/SignUpPage'
 import accountPage from '../../pages/AccountPage'
@@ -14,7 +14,7 @@ describe('Account Creation Specification', () => {
 
 
     beforeEach(function () {
-    
+
         createAccountPage.navigate()
         cy.fixture('users/user').then((user) => {
             this.user = user
@@ -24,7 +24,7 @@ describe('Account Creation Specification', () => {
         })
     })
 
-    it('Positive: Create Valid Account', function () {
+    it(['smoke'], 'Positive: Create Valid Account', function () {
         createAccountPage.enterFirstName(this.user.firstname)
             .enterLastname(this.user.lastname)
             .checkNewsletter()
@@ -91,7 +91,7 @@ describe('Account Creation Specification', () => {
             .checkAllertMsg(this.error.alreadyRegisteredErr)
     })
 
-    it('Negetive: Create User With Invalid Confirm Password', function () {
+    it(['smoke'], 'Negetive: Create User With Invalid Confirm Password', function () {
         createAccountPage.enterFirstName(this.user.firstname)
             .enterLastname(this.user.lastname)
             .checkNewsletter()

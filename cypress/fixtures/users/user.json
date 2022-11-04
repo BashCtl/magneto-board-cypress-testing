@@ -7,6 +7,7 @@
     "confirmPass": "qwert789!",
     "invalidPass": "shef892323wj",
     "successRegMsg": "Thank you for registering with Fake Online Clothing Store.",
+    "invalidLoginMsg": "The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.",
     "companyTitle": "Weyland-Yutani",
     "addressLine1": "Baker St. 666",
     "addressLine2": "Fuck you building",

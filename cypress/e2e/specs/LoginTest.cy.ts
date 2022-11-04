@@ -1,3 +1,4 @@
+/// <reference types='cypress-tags' />
 import loginPage from '../../pages/LoginPage'
 import accountPage from '../../pages/AccountPage'
 
@@ -15,11 +16,18 @@ describe('Login tests', () => {
         })
     })
 
-    it('Positive: Login with valid cridentials', function () {
+    it(['smoke'], 'Positive: Login with valid cridentials', function () {
         loginPage.enterEmail(this.user.email)
             .enterPassword(this.user.password)
             .clickSingInBtn()
         accountPage.checkPageTitle('My Account')
+    })
+
+    it(['smoke'], 'Negative: Login with invalid cridentials', function () {
+        loginPage.enterEmail(this.user.email)
+            .enterPassword(this.user.invalidPass)
+            .clickSingInBtn()
+            .checkAlert(this.user.invalidLoginMsg)
     })
 
 })

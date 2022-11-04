@@ -18,7 +18,7 @@ commands:
     steps:
       - run:
           name: Run e2e
-          command: << pipeline.parameters.e2eCommand >>
+          command: << parameters.e2eCommand >>
           no_output_timeout: 180m
 
 jobs:

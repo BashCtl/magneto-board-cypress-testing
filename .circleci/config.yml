@@ -41,7 +41,7 @@ jobs:
           name: Run e2e
           command: << pipepline.parameters.e2eCommand >>
           no_output_timeout: 180m
-          
+
       - run:
           name: Generate mocha report
           command: npm run mochawesome:merge
@@ -88,8 +88,7 @@ workflows:
                 - master
     jobs:
       - build:
-          e2e:
-            e2eCommand: CYPRESS_INCLUDE_TAGS=smoke npm run test -- --browser << pipeline.parameters.browser >>
+          e2eCommand: CYPRESS_INCLUDE_TAGS=smoke npm run test -- --browser << pipeline.parameters.browser >>
 
   on_demand:
     when: << pipeline.parameters.ApiTrigger >>

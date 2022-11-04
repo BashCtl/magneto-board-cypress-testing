@@ -34,6 +34,7 @@ class ItemPage {
         this.checkoutBtn()
             .realHover()
             .click({ force: true })
+        cy.wait(1000)
     }
 
     enterQuatity(amount) {

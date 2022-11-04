@@ -30,11 +30,9 @@ class ItemPage {
     }
 
     proceedToCheckout() {
-        cy.wait(2000)
         this.checkoutBtn()
             .realHover()
             .click({ force: true })
-        cy.wait(1000)
     }
 
     enterQuatity(amount) {

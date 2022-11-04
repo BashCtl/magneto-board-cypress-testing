@@ -97,7 +97,6 @@ class CheckoutPage {
     }
 
     clickNextButton() {
-        cy.wait(1500)
         this.nextBtn().click()
     }
 }

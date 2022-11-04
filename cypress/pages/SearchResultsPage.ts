@@ -6,16 +6,12 @@ class SearchResultPage {
     private selectedSort = () => cy.get('#sorter option[selected="selected"]', { timeout: 15000 }).first()
     private priceElements = () => cy.get('.price')
     private sortArrow = () => cy.get('.sorter').first()
-    private sortDescArrow = () => cy.get('.action.sort-desc')
     private productIemsList = () => cy.get('.product-item-info')
     private pageTitle = () => cy.get('.page-title span')
     private searchField = () => cy.get('input#search')
 
     selectSortOption(value) {
-        // need to implemet proper wait
-        cy.wait(2000)
         this.sortDropdown().select(value)
-        // this.selectedSort().should('contains', value)
         return this
     }
 
@@ -43,8 +39,6 @@ class SearchResultPage {
     setDescendingOrder() {
         this.sortArrow().then(arrow => {
             if (arrow.find('.sort-asc').length > 0) {
-                //need to implemet better wait for page loadig
-                cy.wait(2000)
                 cy.wrap(arrow.find('.sort-asc')).realClick()
                 this.sortArrow().find('.sort-desc').should('be.visible')
             }
@@ -55,10 +49,7 @@ class SearchResultPage {
     setAscendingOrder() {
         this.sortArrow().then((arrow) => {
             if (arrow.find('.sort-desc').length > 0) {
-                //need to implemet better wait for page loadig
-                cy.wait(2000)
                 cy.wrap(arrow.find('.sort-desc')).realClick()
-                console.log('CLICKED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
                 this.sortArrow().find('.sort-asc').should('be.visible')
             }
         })

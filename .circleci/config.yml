@@ -9,12 +9,12 @@ parameters:
     type: string
     default: chrome
 
-  e2eCommand:
-    type: string
-    default: npm run test -- --browser << pipeline.parameters.browser >>
-
 jobs:
   build:
+    parameters:
+      e2eCommand:
+        type: string
+        default: npm run test -- --browser << pipeline.parameters.browser >>
     docker:
       - image: cypress/browsers:latest
         environment:
@@ -39,7 +39,7 @@ jobs:
             - ~/.cache
       - run:
           name: Run e2e
-          command: << pipepline.parameters.e2eCommand >>
+          command: << parameters.e2eCommand >>
           no_output_timeout: 180m
 
       - run:

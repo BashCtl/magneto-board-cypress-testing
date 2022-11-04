@@ -16,6 +16,7 @@ class PaymentPage {
     }
 
     clickPlaceOrderBtn() {
+        cy.wait(1500)
         this.placeOrderBtn().click()
         return this
     }

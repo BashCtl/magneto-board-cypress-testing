@@ -11,6 +11,7 @@ class SearchResultPage {
     private searchField = () => cy.get('input#search')
 
     selectSortOption(value) {
+        cy.wait(1000)
         this.sortDropdown().select(value)
         return this
     }
@@ -39,6 +40,7 @@ class SearchResultPage {
     setDescendingOrder() {
         this.sortArrow().then(arrow => {
             if (arrow.find('.sort-asc').length > 0) {
+                cy.wait(1000)
                 cy.wrap(arrow.find('.sort-asc')).realClick()
                 this.sortArrow().find('.sort-desc').should('be.visible')
             }
@@ -49,6 +51,7 @@ class SearchResultPage {
     setAscendingOrder() {
         this.sortArrow().then((arrow) => {
             if (arrow.find('.sort-desc').length > 0) {
+                cy.wait(1000)
                 cy.wrap(arrow.find('.sort-desc')).realClick()
                 this.sortArrow().find('.sort-asc').should('be.visible')
             }

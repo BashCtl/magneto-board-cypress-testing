@@ -32,6 +32,15 @@ jobs:
             - v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
             - v1-deps-{{ .Branch }}
             - v1-deps
+
+      - run:
+          name: View project details
+          command: |
+            echo $CIRCLE_PROJECT_USERNAME
+            echo $CIRCLE_PROJECT_REPONAME
+            env
+          when: always
+
       - run:
           name: Install Dependencies
           command: npm ci
@@ -45,13 +54,6 @@ jobs:
           name: Run e2e
           command: << parameters.e2eCommand >>
           no_output_timeout: 180m
-
-      - run:
-          name: View project details
-          command: |
-            echo $CIRCLE_PROJECT_USERNAME
-            echo $CIRCLE_PROJECT_REPONAME
-            env
 
       - run:
           name: Generate mocha report

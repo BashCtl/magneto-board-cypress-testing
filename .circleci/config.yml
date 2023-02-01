@@ -51,6 +51,7 @@ jobs:
           command: |
             echo $CIRCLE_PROJECT_USERNAME
             echo $CIRCLE_PROJECT_REPONAME
+            env
 
       - run:
           name: Generate mocha report
@@ -81,28 +82,28 @@ workflows:
     jobs:
       - build
 
-  nightly:
-    triggers:
-      - schedule:
-          cron: "0 3 * * 3"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - build
+  # nightly:
+  #   triggers:
+  #     - schedule:
+  #         cron: "0 3 * * 3"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #   jobs:
+  #     - build
 
-  smoke:
-    triggers:
-      - schedule:
-          cron: "0 * * * 3"
-          filters:
-            branches:
-              only:
-                - master
-    jobs:
-      - build:
-          e2eCommand: CYPRESS_INCLUDE_TAGS=smoke npm run test -- --browser << pipeline.parameters.browser >>
+  # smoke:
+  #   triggers:
+  #     - schedule:
+  #         cron: "0 * * * 3"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - master
+  #   jobs:
+  #     - build:
+  #         e2eCommand: CYPRESS_INCLUDE_TAGS=smoke npm run test -- --browser << pipeline.parameters.browser >>
 
   smoke_on_demad:
     when: << pipeline.parameters.SmokeTrigger>>

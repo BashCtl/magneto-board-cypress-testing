@@ -47,6 +47,12 @@ jobs:
           no_output_timeout: 180m
 
       - run:
+          name: View project details
+          command: |
+            echo $CIRCLE_PROJECT_USERNAME
+            echo $CIRCLE_PROJECT_REPONAME
+
+      - run:
           name: Generate mocha report
           command: npm run mochawesome:merge
           when: always
@@ -78,7 +84,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: "0 3 * * *"
+          cron: "0 3 * * 3"
           filters:
             branches:
               only:
@@ -89,7 +95,7 @@ workflows:
   smoke:
     triggers:
       - schedule:
-          cron: "0 0,2,4,6,8,10,12,14,16,18,20,22 * * *"
+          cron: "0 * * * 3"
           filters:
             branches:
               only:
